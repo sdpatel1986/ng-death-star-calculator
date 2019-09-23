@@ -1,0 +1,16 @@
+<div class="p-2">
+    <table class="table" *ngIf="calculations">
+        <thead>
+            <tr>
+                <th scope="col">People</th>
+                <th scope="col">Planets Volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let calc of calculations">
+                <td>{{joinStrings(calc.people)}}</td>
+                <td>{{calc.totalVolume}} &#13222;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

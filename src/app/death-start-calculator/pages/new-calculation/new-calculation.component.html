@@ -1,0 +1,35 @@
+<div class="d-flex p-2 justify-content-center w-100">
+    <div class="d-flex flex-column p-2 page-container">
+        <div class="d-flex justify-content-between p-2">
+            <a class="btn btn-lg btn-outline-dark d-flex icon-button" routerLink="/deathStarCalculator/overview">
+                <mat-icon aria-hidden="false">dashboard</mat-icon>
+                <span class="aligned-with-icon p-1">Overview page</span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Search in people database</h5>
+                <ng-select [multiple]="true" [items]="filteredPeople$ | async" bindLabel="name"
+                    [typeahead]="peopleInput$" [formControl]="SelectedPeopleFC">
+                </ng-select>
+                <div class="p-2 d-flex justify-content-center w-100">
+                    <button *ngIf="!volumeCalculation" (click)="calculate()" class="btn btn-outline-dark"
+                        [disabled]="!(this.SelectedPeople.length > 0)">Calculate
+                        volume </button>
+                    <button *ngIf="volumeCalculation" (click)="reset()"
+                        class="btn btn-outline-dark d-flex icon-button">
+                        <mat-icon aria-hidden="false">add</mat-icon>
+                        <span class="aligned-with-icon p-1">New calculation</span> </button>
+                </div>
+                <div *ngIf="volumeCalculation">
+                    <div class="p-2">
+                        <h5>The volume of the planets is {{volumeCalculation.totalVolume}} &#13222;</h5>
+                    </div>
+                    <div class="p-2 d-flex justify-content-center w-100">
+                        <button (click)="addCalcuation()" class="btn btn-outline-dark">Take over calculation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

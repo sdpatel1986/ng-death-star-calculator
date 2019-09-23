@@ -1,0 +1,16 @@
+<div class="d-flex p-2 justify-content-center w-100">
+    <div class="d-flex flex-column p-2 page-container">
+        <div class="d-flex justify-content-end p-2">
+            <a class="btn btn-lg btn-outline-dark d-flex icon-button" routerLink="/deathStarCalculator/new-calculation">
+                    <mat-icon aria-hidden="false">add</mat-icon>
+                    <span class="aligned-with-icon p-1">New calculation</span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Previous calculations</h5>
+                <app-calculations-list [calculations]="calculations$ | async"></app-calculations-list>
+            </div>
+        </div>
+    </div>
+</div>
